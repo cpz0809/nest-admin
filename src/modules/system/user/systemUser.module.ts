@@ -8,5 +8,6 @@ import { SystemUserEntity } from './systemUser.entity';
   imports: [TypeOrmModule.forFeature([SystemUserEntity])],
   providers: [SystemUserService],
   controllers: [SysUserController],
+  exports: [SystemUserService],
 })
 export class SystemUserModule {}

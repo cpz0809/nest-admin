@@ -1,14 +1,15 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { BaseEntity } from '@/common/entitys/base';
 
 @Entity('sys_user')
-export class SystemUserEntity {
+export class SystemUserEntity extends BaseEntity {
   @PrimaryGeneratedColumn({ name: 'userid' })
   userId: number;
 
   @Column({ type: 'varchar', length: 16 })
   username: string;
 
-  @Column({ type: 'varchar', length: 60 })
+  @Column({ type: 'varchar', length: 60, select: false })
   password: string;
 
   @Column({ type: 'varchar', length: 255 })
@@ -34,16 +35,4 @@ export class SystemUserEntity {
 
   @Column({ type: 'int' })
   post: number;
-
-  @Column({ type: 'int', default: 1 })
-  status: number;
-
-  @Column({ type: 'varchar', length: 50 })
-  remark: string;
-
-  @Column({ type: 'timestamp', name: 'create_time' })
-  createTime: string;
-
-  @Column({ type: 'timestamp', name: 'update_time' })
-  updateTime: string;
 }
